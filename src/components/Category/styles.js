@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import { lazyLoading } from "../../styles/animation";
+import styled from "styled-components";
+import { Link as LinkRouter } from "react-router-dom";
 
-export const Anchor = styled.a`
+export const Link = styled(LinkRouter)`
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -18,9 +18,4 @@ export const Image = styled.img`
   object-fit: cover;
   height: 75px;
   width: 75px;
-  ${(props) =>
-    props.lazyLoading &&
-    css`
-      ${lazyLoading()}
-    `}
 `;

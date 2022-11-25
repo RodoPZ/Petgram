@@ -11,7 +11,6 @@ export const PhotoCardWithQuery = ({ id }) => {
 
   return (
     <>
-      <a href="/">BACK</a>
       <PhotoCard {...data.photo} />
     </>
   );

@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Category } from "../Category";
 import { List, Item } from "./styles";
+import { LoadingCircle } from "../LoadingSkeleton/styles";
 
 function useCategoriesData() {
   const [categories, setCategories] = useState([]);
@@ -39,14 +40,10 @@ export const ListOfCategories = () => {
   const renderList = (fixed) => (
     <List fixed={fixed}>
       {loading
-        ? [1, 2, 3, 4, 5, 6].map((category) => (
-            <Item key={category}>
-              <Category loading={true} />
-            </Item>
-          ))
+        ? [1, 2, 3, 4, 5, 6].map((number) => <LoadingCircle key={number} />)
         : categories.map((category) => (
             <Item key={category.id}>
-              <Category {...category} />
+              <Category {...category} path={`/pet/${category.id}`} />
             </Item>
           ))}
     </List>

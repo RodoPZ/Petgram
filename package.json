@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
-    "server": "webpack-dev-server --open",
+    "server": "webpack-dev-server --history-api-fallback --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -39,6 +39,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
+    "react-router-dom": "^6.4.3",
     "styled-components": "^5.3.6"
   }
 }
