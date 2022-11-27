@@ -3,26 +3,20 @@ import { Img, ImgWrapper, Article } from "./styles";
 import { FavButton } from "../FavButton";
 
 import PropTypes from "prop-types";
-import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useNearScreen } from "../hooks/useNearScreen";
 import { useMuationToogleLike } from "../hooks/useLikeMutation";
 import { Link } from "react-router-dom";
 
-export const PhotoCard = ({ id, likes = 0, src }) => {
+export const PhotoCard = ({ id, liked, likes = 0, src }) => {
   const { mutation, mutationLoading, mutationError } = useMuationToogleLike();
   const [show, element] = useNearScreen();
 
-  const key = `like-${id}`;
-  const [liked, setLiked] = useLocalStorage(key, false);
-
   const handleFavCLick = () => {
-    !liked &&
-      mutation({
-        variables: {
-          input: { id },
-        },
-      });
-    setLiked(!liked);
+    mutation({
+      variables: {
+        input: { id },
+      },
+    });
   };
 
   return (
@@ -45,4 +39,5 @@ PhotoCard.propTypes = {
   id: PropTypes.string,
   likes: PropTypes.number,
   src: PropTypes.string,
+  liked: PropTypes.bool,
 };
