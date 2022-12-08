@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "app.bundle.js",
-    publicPath: "/",
+    publicPath: ".",
     clean: true,
   },
   module: {
@@ -34,7 +34,9 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html",
     }),
-    new WebpackBundleAnalyzer.BundleAnalyzerPlugin(),
+    new WebpackBundleAnalyzer.BundleAnalyzerPlugin({
+      analyzerMode: "static",
+    }),
     new WebpackPwaManifestPlugin({
       name: "Petgram - Tu app de fotos de mascotas",
       short_name: "petgram 😺",

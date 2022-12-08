@@ -7,7 +7,7 @@
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "server": "webpack-dev-server --mode='development'",
     "serve:dev": "webpack --mode 'development' && npx serve dist -s",
     "serve:prod": "webpack --mode 'production' && npx serve dist -s"
@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/RodoPZ/petgram/issues"
   },
-  "homepage": "https://github.com/RodoPZ/petgram",
+  "homepage": "https://rodopz.github.io/petgram",
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
