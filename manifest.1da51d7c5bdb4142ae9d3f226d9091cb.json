@@ -1,32 +1,32 @@
 {
   "icons": [
     {
-      "src": "/icon_512x512.22e354a54adcf181342fd096d5fd5604.png",
+      "src": "./icon_512x512.22e354a54adcf181342fd096d5fd5604.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "/icon_384x384.27ea5bc1c9d65f0125050e612e041694.png",
+      "src": "./icon_384x384.27ea5bc1c9d65f0125050e612e041694.png",
       "sizes": "384x384",
       "type": "image/png"
     },
     {
-      "src": "/icon_256x256.6934afb6d3a50ac67ac4ccc498f8429a.png",
+      "src": "./icon_256x256.6934afb6d3a50ac67ac4ccc498f8429a.png",
       "sizes": "256x256",
       "type": "image/png"
     },
     {
-      "src": "/icon_192x192.ec226252d7908033eaded44e20f8e48f.png",
+      "src": "./icon_192x192.ec226252d7908033eaded44e20f8e48f.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/icon_128x128.97781dbe6afc383ba5dbc77d788c8baf.png",
+      "src": "./icon_128x128.97781dbe6afc383ba5dbc77d788c8baf.png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "/icon_96x96.ad101dc44ef97dd686011e068ca0e6a5.png",
+      "src": "./icon_96x96.ad101dc44ef97dd686011e068ca0e6a5.png",
       "sizes": "96x96",
       "type": "image/png"
     }
