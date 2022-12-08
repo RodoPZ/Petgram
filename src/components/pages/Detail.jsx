@@ -1,8 +1,15 @@
 import React from "react";
 import { PhotoCardWithQuery } from "../container/PhotoCardWithQuery";
 import { useParams } from "react-router-dom";
+import { Layout } from "../Layout";
 
-export const Detail = () => {
+const Detail = () => {
   const { id } = useParams();
-  return <PhotoCardWithQuery id={id} />;
+  return (
+    <Layout title={`Fotografía ${id}`}>
+      <PhotoCardWithQuery id={id} />
+    </Layout>
+  );
 };
+
+export default Detail;

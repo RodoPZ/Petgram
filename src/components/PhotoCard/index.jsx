@@ -8,7 +8,7 @@ import { useMuationToogleLike } from "../hooks/useLikeMutation";
 import { Link } from "react-router-dom";
 
 export const PhotoCard = ({ id, liked, likes = 0, src }) => {
-  const { mutation, mutationLoading, mutationError } = useMuationToogleLike();
+  const { mutation } = useMuationToogleLike();
   const [show, element] = useNearScreen();
 
   const handleFavCLick = () => {
@@ -36,8 +36,8 @@ export const PhotoCard = ({ id, liked, likes = 0, src }) => {
 };
 
 PhotoCard.propTypes = {
-  id: PropTypes.string,
-  likes: PropTypes.number,
-  src: PropTypes.string,
-  liked: PropTypes.bool,
+  id: PropTypes.string.isRequired,
+  likes: PropTypes.number.isRequired,
+  src: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
 };

@@ -5,13 +5,14 @@ export const List = styled.ul`
   display: flex;
   overflow: scroll;
   width: 100%;
+  padding-left: 0px;
   &::-webkit-scrollbar {
     display: none;
   }
   ${(props) =>
     props.fixed &&
     css`
-      ${fadeIn({ time: "0.5s" })}
+      ${fadeIn({ time: "0.1s" })}
       background: white;
       border-radius: 60px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);

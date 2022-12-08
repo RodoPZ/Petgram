@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import { APP } from "./app.jsx";
 import {
   ApolloClient,
@@ -39,7 +39,7 @@ const client = new ApolloClient({
   }),
 });
 
-const root = ReactDOM.createRoot(document.getElementById("app"));
+const root = createRoot(document.getElementById("app"));
 root.render(
   <AppProvider>
     <ApolloProvider client={client}>

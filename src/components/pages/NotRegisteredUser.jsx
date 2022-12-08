@@ -4,7 +4,7 @@ import { UserForm } from "../UserForm";
 import { useRegisterMutation } from "../hooks/useRegisterMutation";
 import { useLoginMutation } from "../hooks/useLoginMutation";
 
-export const NotRegisteredUser = () => {
+const NotRegisteredUser = () => {
   const { activateAuth } = useContext(AppContext);
 
   return (
@@ -54,3 +54,5 @@ export const NotRegisteredUser = () => {
     </>
   );
 };
+
+export default NotRegisteredUser;

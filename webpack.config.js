@@ -1,17 +1,17 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
-
+const WebpackPwaManifestPlugin = require("webpack-pwa-manifest");
+const WebpackBundleAnalyzer = require("webpack-bundle-analyzer");
 module.exports = {
-  mode: "development",
   entry: "./src/index.jsx",
   resolve: {
     extensions: [".js", ".jsx"],
   },
-
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "app.bundle.js",
     publicPath: "/",
+    clean: true,
   },
   module: {
     rules: [
@@ -27,11 +27,29 @@ module.exports = {
       },
     ],
   },
+
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
       template: "./src/index.html",
       filename: "./index.html",
+    }),
+    new WebpackBundleAnalyzer.BundleAnalyzerPlugin(),
+    new WebpackPwaManifestPlugin({
+      name: "Petgram - Tu app de fotos de mascotas",
+      short_name: "petgram 😺",
+      description:
+        "Con petgram puedes encontrar fotos de animales muy facilmente",
+      background_color: "#fff",
+      theme_color: "#b1a",
+      start_url: ".",
+
+      icons: [
+        {
+          src: path.resolve("src/assets/icons.png"),
+          sizes: [96, 128, 192, 256, 384, 512],
+        },
+      ],
     }),
   ],
 };

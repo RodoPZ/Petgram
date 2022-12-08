@@ -3,6 +3,7 @@ import { PhotoCard } from "../PhotoCard";
 import propTypes from "prop-types";
 import { useGetPhotos } from "../hooks/useGetPhotos";
 import { LoadingRectangle } from "../LoadingSkeleton/styles";
+import { Item } from "./styles";
 
 export const ListOfPhotoCards = ({ categoryId }) => {
   const { loading, error, data } = useGetPhotos(categoryId);
@@ -10,17 +11,17 @@ export const ListOfPhotoCards = ({ categoryId }) => {
   if (error) return <pre>{error.message}</pre>;
 
   return loading ? (
-    <ul>
+    <Item>
       {[1, 2, 3, 4, 5].map((number) => (
         <LoadingRectangle key={number} />
       ))}
-    </ul>
+    </Item>
   ) : (
-    <ul>
+    <Item>
       {data.photos.map((photo) => (
         <PhotoCard key={photo.id} {...photo} />
       ))}
-    </ul>
+    </Item>
   );
 };
 

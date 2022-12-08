@@ -12,6 +12,10 @@ export const AppProvider = ({ children }) => {
       setIsAuth(true);
       sessionStorage.setItem("token", token);
     },
+    removeAuth: () => {
+      setIsAuth(false);
+      sessionStorage.removeItem("token");
+    },
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

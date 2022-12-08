@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useInputValue } from "../hooks/useInputValue";
-import { Form, Input, Button, Title, Error } from "../UserForm/styles";
+import { Form, Input, Title, Error } from "../UserForm/styles";
 import { Spinner } from "../../styles/component";
+import { SubmitButton } from "../SubmitButton";
 
 export const UserForm = ({ loading, onSubmit, title, error }) => {
   const email = useInputValue("");
@@ -24,9 +25,9 @@ export const UserForm = ({ loading, onSubmit, title, error }) => {
           type="password"
           {...password}
         />
-        <Button disabled={loading}>
+        <SubmitButton disabled={loading}>
           {!loading ? title : <Spinner size={"20px"} />}
-        </Button>
+        </SubmitButton>
       </Form>
       {error && <Error>{error}</Error>}
     </>
