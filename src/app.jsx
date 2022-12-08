@@ -3,7 +3,7 @@ import { NavBar } from "./components/NavBar";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { Home } from "./components/pages/Home";
 import { Logo } from "./components/Logo";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NotFoud } from "./components/pages/NotFound";
 import { AppContext } from "./Context";
 const Detail = lazy(() => import("./components/pages/Detail"));
@@ -17,14 +17,13 @@ export const APP = () => {
   const Context = useContext(AppContext);
   return (
     <Suspense fallback={<div />}>
-      <BrowserRouter>
+      <HashRouter>
         <GlobalStyle />
         <Logo />
         <Routes>
-          <Route path="*" element={<NotFoud />} />
+          <Route path="/" element={<Home />} />
           <Route path="/pet/:id" element={<Home />} />
           <Route path="/detail/:id" element={<Detail />} />
-          <Route path="/" element={<Home />} />
           <Route
             path="/favs"
             element={Context.isAuth ? <Favs /> : <NotRegisteredUser />}
@@ -39,9 +38,10 @@ export const APP = () => {
               Context.isAuth ? <Navigate to="/" /> : <NotRegisteredUser />
             }
           />
+          <Route path="*" element={<NotFoud />} />
         </Routes>
         <NavBar />
-      </BrowserRouter>
+      </HashRouter>
     </Suspense>
   );
 };
