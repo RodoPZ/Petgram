@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/RodoPZ/petgram/issues"
   },
-  "homepage": "https://rodopz.github.io/petgram",
+  "homepage": "https://rodopz.github.io/petgram/",
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@babel/preset-env": "^7.20.2",

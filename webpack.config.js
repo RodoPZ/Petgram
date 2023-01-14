@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
-// const WebpackBundleAnalyzer = require("webpack-bundle-analyzer");
 module.exports = {
   entry: "./src/index.jsx",
   resolve: {
@@ -9,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "app.bundle.js",
-    publicPath: "/",
+    publicPath: "./",
     clean: true,
   },
   module: {
@@ -33,8 +32,5 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html",
     }),
-    // new WebpackBundleAnalyzer.BundleAnalyzerPlugin({
-    //   analyzerMode: "static",
-    // }),
   ],
 };
