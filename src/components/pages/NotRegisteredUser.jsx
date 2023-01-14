@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../Context";
+import React from "react";
 import { UserForm } from "../UserForm";
 import { useRegisterMutation } from "../hooks/useRegisterMutation";
 import { useLoginMutation } from "../hooks/useLoginMutation";
+import store from "../../store";
+import { activateAuth } from "../../features/isAuth/isAuthSlice";
 
 const NotRegisteredUser = () => {
-  const { activateAuth } = useContext(AppContext);
-
   return (
     <>
       {(() => {
@@ -16,7 +15,7 @@ const NotRegisteredUser = () => {
           const variable = { input };
           Mutation({ variables: variable }).then(({ data }) => {
             const { signup } = data;
-            activateAuth(signup);
+            store.dispatch(activateAuth(signup));
           });
         };
         const ErrorMsg = error && "El usuario ya existe o hay un problema.";
@@ -36,7 +35,7 @@ const NotRegisteredUser = () => {
           const variable = { input };
           Mutation({ variables: variable }).then(({ data }) => {
             const { login } = data;
-            activateAuth(login);
+            store.dispatch(activateAuth(login));
           });
         };
 

@@ -1,11 +1,13 @@
-import React, { useContext, lazy, Suspense } from "react";
+import React, { lazy, Suspense } from "react";
 import { NavBar } from "./components/NavBar";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { Home } from "./components/pages/Home";
 import { Logo } from "./components/Logo";
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NotFoud } from "./components/pages/NotFound";
-import { AppContext } from "./Context";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 const Detail = lazy(() => import("./components/pages/Detail"));
 const Favs = lazy(() => import("./components/pages/Favs"));
 const User = lazy(() => import("./components/pages/User"));
@@ -13,8 +15,8 @@ const NotRegisteredUser = lazy(() =>
   import("./components/pages/NotRegisteredUser")
 );
 
-export const APP = () => {
-  const Context = useContext(AppContext);
+const APP = (props) => {
+  console.log(props);
   return (
     <Suspense fallback={<div />}>
       <HashRouter>
@@ -26,17 +28,15 @@ export const APP = () => {
           <Route path="/detail/:id" element={<Detail />} />
           <Route
             path="/favs"
-            element={Context.isAuth ? <Favs /> : <NotRegisteredUser />}
+            element={props.isAuth ? <Favs /> : <NotRegisteredUser />}
           />
           <Route
             path="/user"
-            element={Context.isAuth ? <User /> : <NotRegisteredUser />}
+            element={props.isAuth ? <User /> : <NotRegisteredUser />}
           />
           <Route
             path="/login"
-            element={
-              Context.isAuth ? <Navigate to="/" /> : <NotRegisteredUser />
-            }
+            element={props.isAuth ? <Navigate to="/" /> : <NotRegisteredUser />}
           />
           <Route path="*" element={<NotFoud />} />
         </Routes>
@@ -45,3 +45,9 @@ export const APP = () => {
     </Suspense>
   );
 };
+APP.propTypes = {
+  isAuth: PropTypes.bool,
+};
+const mapStateToProps = (state) => ({ isAuth: state.isAuth });
+
+export default connect(mapStateToProps)(APP);

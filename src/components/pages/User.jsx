@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../Context";
+import React from "react";
 import { SubmitButton } from "../SubmitButton";
+import store from "../../store";
+import { deactivateAuth } from "../../features/isAuth/isAuthSlice";
 const User = () => {
-  const { removeAuth } = useContext(AppContext);
   return (
     <>
       <h1>User</h1>
-      <SubmitButton onClick={removeAuth}>Cerrar sesión</SubmitButton>
+      <SubmitButton onClick={() => store.dispatch(deactivateAuth())}>
+        Cerrar sesión
+      </SubmitButton>
     </>
   );
 };

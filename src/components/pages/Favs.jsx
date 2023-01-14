@@ -4,7 +4,6 @@ import { ListOfFavs } from "../ListOfFavs";
 import { Layout } from "../Layout";
 const Favs = () => {
   const { data, loading, error } = useGetFavorites();
-  console.log({ data, loading, error });
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error!</p>;
   const { favs } = data;

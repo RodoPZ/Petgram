@@ -1,6 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { APP } from "./app.jsx";
+
+import APP from "./app.jsx";
 import {
   ApolloClient,
   InMemoryCache,
@@ -10,7 +11,8 @@ import {
   concat,
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
-import { AppProvider } from "./Context.jsx";
+import { Provider } from "react-redux";
+import store from "./store.js";
 
 const httpLink = new HttpLink({
   uri: "https://petsgram-server-mappedev-339gmifsh.vercel.app/graphql",
@@ -41,9 +43,9 @@ const client = new ApolloClient({
 
 const root = createRoot(document.getElementById("app"));
 root.render(
-  <AppProvider>
+  <Provider store={store}>
     <ApolloProvider client={client}>
       <APP />
     </ApolloProvider>
-  </AppProvider>
+  </Provider>
 );
